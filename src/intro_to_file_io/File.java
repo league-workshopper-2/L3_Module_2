@@ -11,9 +11,12 @@ public static void main(String[] args) {
 	try {
 		FileWriter fw = new FileWriter("src/intro_to_file_io/FileWriter.txt");
 		for (int i = 0; i < message.length(); i++) {
-			encryption+=message.charAt(i)*1;
+			encryption+=message.charAt(i)+1;
+			word+=message.charAt(i)-1;
 		}
+	//	fw.write(message);
 		fw.write(encryption);
+	//	fw.write("\n" + word);
 	//	for (int i = 0; i < encryption.length(); i++) {
 	//		message+=encryption.charAt(i)%1;
 	//	}
