@@ -1,5 +1,4 @@
 package intro_to_file_io;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
@@ -25,9 +24,8 @@ public class Decrypt {
 				String line = br.readLine();
 				while(line != null){
 					System.out.println(line);
+					encryption+=(char)(line.charAt(line.length())-1);
 					line = br.readLine();
-					encryption+=line.charAt(line.length())-1;
-					
 					System.out.println(encryption);
 				}
 				
