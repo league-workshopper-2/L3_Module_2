@@ -18,25 +18,48 @@ public class Decrypt {
 		 String fileName = jfc.getSelectedFile().getAbsolutePath();
 		 System.out.println(fileName);
 		 String encryption = "";
+		
+		 
 		 try {
-				BufferedReader br = new BufferedReader(new FileReader(fileName));
-				
-				String line = br.readLine();
-				while(line != null){
-					System.out.println(line);
-					encryption+=(char)(line.charAt(line.length())-1);
-					line = br.readLine();
+				FileReader fr = new FileReader(fileName);
+				int c = fr.read();
+				while(c != -1){
+					//System.out.print((char)c);
+					encryption+=(char)(c-1);
+					c = fr.read();
 					System.out.println(encryption);
 				}
-				
-				br.close();
-			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				fr.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+//		 try {
+//				BufferedReader br = new BufferedReader(new FileReader(fileName));
+//				
+//				String line = br.readLine();
+//				for (int i = 0; i < line.length(); i++) {
+//					System.out.println(line);
+//					encryption+=(char)(line.charAt(i)-1);
+//					line=br.readLine();
+//					System.out.println(encryption);
+//				}
+//				while(line != null){
+//					System.out.println(line);
+//					encryption+=(char)(line.charAt(line.length())-1);
+//					line = br.readLine();
+//					System.out.println(encryption);
+//				}
+//				
+//				br.close();
+//			} catch (FileNotFoundException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 	//	try {
 	//		FileWriter fw = new FileWriter(fileName);
 	//		for (int i = 0; i < encryption.length(); i++) {

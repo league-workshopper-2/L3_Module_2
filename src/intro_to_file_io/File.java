@@ -13,6 +13,7 @@ public static void main(String[] args) {
 		for (int i = 0; i < message.length(); i++) {
 			encryption+=(char)(message.charAt(i)+1);
 	//		word+=message.charAt(i)-1;
+			System.out.println(encryption);
 		}
 	//	fw.write(message);
 		fw.write(encryption);
