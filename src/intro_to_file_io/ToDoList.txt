@@ -1,2 +1,3 @@
-To Do List
-[wash dishes, take out garbage, clean room]
+
+[wash car, make bed, clean room, take shower, play games]
+[eat food, wash dishes, make bed, clean room, wash car, do homework, play games, take shower]
