@@ -32,6 +32,8 @@ public class ToDoList implements ActionListener {
 	JButton RemoveTask = new JButton();
 	JButton Save = new JButton();
 	JButton Load = new JButton();
+	JLabel label = new JLabel();
+	
 
 	public void buttons() {
 		frame.add(panel);
@@ -42,12 +44,12 @@ public class ToDoList implements ActionListener {
 		panel.add(RemoveTask);
 		panel.add(Save);
 		panel.add(Load);
-
+		panel.add(label);
+		label.setVisible(true);
 		AddTask.setText("Add Task");
 		RemoveTask.setText("Remove Last Task");
 		Save.setText("Save");
 		Load.setText("Load");
-
 		AddTask.addActionListener(this);
 		RemoveTask.addActionListener(this);
 		Save.addActionListener(this);
@@ -76,33 +78,42 @@ public class ToDoList implements ActionListener {
 		if (e.getSource() == Save) {
 			try {
 				FileWriter fw = new FileWriter("src/intro_to_file_io/ToDoList.txt");
-				fw.write("\n" + tasks);
+				for (int i = 0; i < tasks.size(); i++) {
+					String s = tasks.get(i);
+					fw.write(s + "\n");
+				}
+				
 				fw.close();
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
 		}
 		if (e.getSource() == Load) {
-			try {
-				BufferedReader br = new BufferedReader(new FileReader("src/intro_to_file_io/ToDoList.txt"));
-
-				String line = br.readLine();
-				while (line != null) {
-					System.out.println(line);
-					line = br.readLine();
-					JLabel label = new JLabel(line);
-					panel.add(label);
-					label.setVisible(true);
+			
+			label.setText("");
+		//	try {
+		//		BufferedReader br = new BufferedReader(new FileReader("src/intro_to_file_io/ToDoList.txt"));
+//
+//				String line = br.readLine();
+//				while (line != null) {
+//					System.out.println(line);
+//					line = br.readLine();
+//					
+//					
+//				}
+				String s = "";
+				for (String i : tasks) {
+					s += i + "\n";
 				}
-
-				br.close();
-			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+				label.setText(s);
+//				br.close();
+//			} catch (FileNotFoundException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			} catch (IOException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
 
 		}
 	}
